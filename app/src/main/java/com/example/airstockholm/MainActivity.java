@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void generateRandomData() {
-        int temp = new Random().nextInt(11) - 10;
+        int temp = DataTemperature.generateRandomTemperature();
         temperatureLevel.setText(String.valueOf(temp));
 
         String[] aqiIndex = {"Good", "Fair", "Moderate", "Poor", "Very Poor"};
