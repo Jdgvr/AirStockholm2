@@ -15,10 +15,18 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stockholm Pollution Level"
+        android:text="Stockholm Pollution Level of"
         android:textSize="24sp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today date"
+        android:textSize="24sp"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +45,7 @@
             android:id="@+id/textViewTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Temperature Data Here"
+            android:text="Temperature Data"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -58,7 +66,7 @@
             android:id="@+id/textViewAqi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your AQI Data Here"
+            android:text="AQI Data"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -68,4 +76,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Refresh" />
+    <Button
+        android:id="@+id/buttonDataComparisonActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Open Data Comparison" />
+    <Button
+        android:id="@+id/buttonSensorsActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Open Sensors Description" />
 </LinearLayout>
