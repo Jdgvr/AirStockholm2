@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -11,12 +13,18 @@
     tools:context=".SensorsActivity">
 
     <TextView
-        android:id="@+id/textSensor"
+        android:id="@+id/textSensors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sensors Analysis"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textSensors" />
 
 </RelativeLayout>

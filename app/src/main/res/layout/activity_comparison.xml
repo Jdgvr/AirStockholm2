@@ -25,6 +25,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
+        android:layout_below="@id/textComparison"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:id="@+id/textOzoneLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_below="@id/textTemperatureComparison"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:id="@+id/textMaskAdvice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_below="@id/textOzoneLevel"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:id="@+id/textPM25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_below="@id/textMaskAdvice"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"/>
 
