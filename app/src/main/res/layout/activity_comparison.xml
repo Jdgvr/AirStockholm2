@@ -9,7 +9,7 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    tools:context=".DataComparison">
+    tools:context=".ComparisonActivity">
 
     <TextView
         android:id="@+id/textComparison"
@@ -19,13 +19,22 @@
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
+    <TextView
+        android:id="@+id/textStockholmAQI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stockholm AQI"
+        android:textSize="24sp"
+        android:layout_below="@id/textComparison"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/textTemperatureComparison"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:layout_below="@id/textComparison"
+        android:layout_below="@id/textStockholmAQI"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"/>
     <TextView

@@ -23,7 +23,8 @@ public class SensorsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        sensorDataList = new ArrayList<>();sensorDataList.add(new SensorsData("Attributes", 1, "Safe Level"));
+        sensorDataList = new ArrayList<>();
+        sensorDataList.add(new SensorsData("Attributes", 1, "Safe Level"));
         sensorDataList.add(new SensorsData("so2", DataTemperature.generateRandomTemperature(), "[0; 20)"));
         sensorDataList.add(new SensorsData("no2", DataTemperature.generateRandomTemperature(), "[0; 40)"));
         sensorDataList.add(new SensorsData("pm10", DataTemperature.generateRandomTemperature(), "[0; 20)"));

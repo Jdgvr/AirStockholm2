@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openDataComparisonActivity() {
-        Intent intent = new Intent(this, DataComparison.class);
+        Intent intent = new Intent(this, ComparisonActivity.class);
         startActivity(intent);
     }
     private void openSensorsActivity() {

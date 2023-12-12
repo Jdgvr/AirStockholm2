@@ -5,9 +5,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.BreakIterator;
 import java.util.Calendar;
+import java.util.Random;
 
-public class DataComparison extends AppCompatActivity{
+public class ComparisonActivity extends AppCompatActivity{
 
     private TextView textTemperatureComparison;
 
@@ -23,12 +25,29 @@ public class DataComparison extends AppCompatActivity{
         int currentAQI = DataAQI.generateRandomAQI();
         int currentPM25 = DataPm25.generateRandomPm25();
 
+        stockholmAQI(currentAQI);
         compareTemperature(currentTemperature);
         compareOzone(currentOzone);
         maskAlert(currentAQI);
         comparePM25Cigarette(currentPM25);
     }
 
+    private void stockholmAQI(int currentAQI) {
+        String aqiStockholm;
+        if (currentAQI == 5) {
+            aqiStockholm = "Usually Stockholm has good air quality, today : Very Poor";
+        } else if (currentAQI == 4) {
+            aqiStockholm = "Usually Stockholm has good air quality, today : Poor";
+        } else if (currentAQI == 3) {
+            aqiStockholm = "Usually Stockholm has good air quality, today : Moderate";
+        }else if (currentAQI == 2) {
+            aqiStockholm = "Usually Stockholm has good air quality, today : Fair";
+        } else {
+            aqiStockholm = "Usually Stockholm has good air quality, today : Good";
+        }
+        TextView textStockholmAQI = findViewById(R.id.textStockholmAQI);
+        textStockholmAQI.setText(aqiStockholm);
+    }
     private void compareTemperature(int currentTemperature) {
 
         int month = getCurrentMonth();
