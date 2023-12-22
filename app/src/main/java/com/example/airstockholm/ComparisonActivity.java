@@ -5,9 +5,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.BreakIterator;
 import java.util.Calendar;
-import java.util.Random;
 
 public class ComparisonActivity extends AppCompatActivity{
 
@@ -20,10 +18,10 @@ public class ComparisonActivity extends AppCompatActivity{
 
         textTemperatureComparison = findViewById(R.id.textTemperatureComparison);
 
-        int currentTemperature = DataTemperature.generateRandomTemperature();
-        int currentOzone = DataOzone.generateRandomOzone();
-        int currentAQI = DataAQI.generateRandomAQI();
-        int currentPM25 = DataPm25.generateRandomPm25();
+        int currentTemperature = Integer.parseInt(DataStockage.getInstance().getTemperatureData());
+        int currentOzone = Integer.parseInt(DataStockage.getInstance().getO3Data());
+        int currentAQI = Integer.parseInt(DataStockage.getInstance().getAqiData());
+        int currentPM25 = Integer.parseInt(DataStockage.getInstance().getPm25Data());
 
         stockholmAQI(currentAQI);
         compareTemperature(currentTemperature);

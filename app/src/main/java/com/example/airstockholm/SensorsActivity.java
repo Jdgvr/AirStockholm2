@@ -24,13 +24,15 @@ public class SensorsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         sensorDataList = new ArrayList<>();
-        sensorDataList.add(new SensorsData("Attributes", 1, "Safe Level"));
-        sensorDataList.add(new SensorsData("so2", DataTemperature.generateRandomTemperature(), "[0; 20)"));
-        sensorDataList.add(new SensorsData("no2", DataTemperature.generateRandomTemperature(), "[0; 40)"));
-        sensorDataList.add(new SensorsData("pm10", DataTemperature.generateRandomTemperature(), "[0; 20)"));
-        sensorDataList.add(new SensorsData("pm2.5", DataPm25.generateRandomPm25(), "[0; 10)"));
-        sensorDataList.add(new SensorsData("o3", DataOzone.generateRandomOzone(), "[0; 60)"));
-        sensorDataList.add(new SensorsData("co", DataTemperature.generateRandomTemperature(), "[0; 4400)"));
+        sensorDataList.add(new SensorsData("Attributes", "Current Data", "Safe Level"));
+
+        sensorDataList.add(new SensorsData("so2", DataStockage.getInstance().getSo2Data(), "[0; 20)"));
+        sensorDataList.add(new SensorsData("no2", DataStockage.getInstance().getNo2Data(), "[0; 40)"));
+        sensorDataList.add(new SensorsData("pm10", DataStockage.getInstance().getPm10Data(), "[0; 20)"));
+        sensorDataList.add(new SensorsData("pm2.5", DataStockage.getInstance().getPm25Data(), "[0; 10)"));
+        sensorDataList.add(new SensorsData("o3", DataStockage.getInstance().getO3Data(), "[0; 60)"));
+        sensorDataList.add(new SensorsData("co", DataStockage.getInstance().getCoData(), "[0; 4400)"));
+
 
         sensorsAdapter = new SensorsAdapter(sensorDataList);
         recyclerView.setAdapter(sensorsAdapter);

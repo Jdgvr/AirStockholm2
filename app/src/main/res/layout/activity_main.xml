@@ -71,12 +71,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonRefresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Refresh" />
-    <Button
         android:id="@+id/buttonDataComparisonActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,4 +82,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Open Sensors Description" />
+
 </LinearLayout>

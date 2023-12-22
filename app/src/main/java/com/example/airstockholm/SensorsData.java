@@ -3,10 +3,10 @@ package com.example.airstockholm;
 public class SensorsData {
 
     private String attributes;
-    private int currentData;
+    private String currentData;
     private String safeLevel;
 
-    public SensorsData(String attributes, int currentData, String safeLevel) {
+    public SensorsData(String attributes, String currentData, String safeLevel) {
         this.attributes = attributes;
         this.currentData = currentData;
         this.safeLevel = safeLevel;
@@ -14,7 +14,7 @@ public class SensorsData {
     public String getAttributes() {
         return attributes;
     }
-    public int getCurrentData() {
+    public String getCurrentData() {
         return currentData;
     }
     public String getSafeLevel() {
