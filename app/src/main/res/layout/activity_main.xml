@@ -69,6 +69,26 @@
             android:text="AQI Data"
             android:textSize="18sp"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/textViewAqiLabelTomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tomorow AQI : "
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/textViewAqiTomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AQI Data"
+            android:textSize="18sp"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonDataComparisonActivity"

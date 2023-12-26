@@ -1,5 +1,7 @@
 package com.example.airstockholm;
 
+import android.util.Log;
+
 public class DataStockage {
 
     private static DataStockage instance;
@@ -13,7 +15,12 @@ public class DataStockage {
     private String pm25Data;
     private String pm10Data;
     private String nh3Data;
+    private String aqiTomorrowData;
 
+    private DataStockage() {
+        // Private constructor to prevent instantiation
+        Log.i("DataStockage", "Singleton instance created");
+    }
     public static synchronized DataStockage getInstance() {
         if (instance == null) {
             instance = new DataStockage();
@@ -27,6 +34,7 @@ public class DataStockage {
 
     public void setTemperatureData(String temperatureData) {
         this.temperatureData = temperatureData;
+        Log.i("DataStockage", "Temperature data set: " + temperatureData);
     }
 
     public String getAqiData() {
@@ -100,6 +108,14 @@ public class DataStockage {
     public void setCoData(String coData) {
         this.coData = coData;
     }
+    public String getAqiTomorrowData() {
+        return aqiTomorrowData;
+    }
+
+    public void setAqiTomorrowData(String aqiTomorrowData) {
+        this.aqiTomorrowData = aqiTomorrowData;
+    }
 }
+
 
 

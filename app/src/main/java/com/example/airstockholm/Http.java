@@ -17,6 +17,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
+
+
+
+
+
+
+
+
+
+
+
 public class Http extends AsyncTask<Void, Void, String> {
 
     private TextView temperatureLevel;
@@ -29,6 +40,7 @@ public class Http extends AsyncTask<Void, Void, String> {
     private TextView pm25Label;
     private TextView pm10Label;
     private TextView nh3Label;
+    private TextView aqiTomorrowLabel;
 
     public Http(TextView temperatureLevel,
                 TextView aqiLabel,
@@ -39,7 +51,8 @@ public class Http extends AsyncTask<Void, Void, String> {
                 TextView so2Label,
                 TextView pm25Label,
                 TextView pm10Label,
-                TextView nh3Label) {
+                TextView nh3Label,
+                TextView aqiTomorrowLabel) {
         this.temperatureLevel = temperatureLevel;
         this.aqiLabel = aqiLabel;
         this.coLabel = coLabel;
@@ -50,6 +63,7 @@ public class Http extends AsyncTask<Void, Void, String> {
         this.pm25Label = pm25Label;
         this.pm10Label = pm10Label;
         this.nh3Label = nh3Label;
+        this.aqiTomorrowLabel = aqiTomorrowLabel;
     }
 
 
@@ -58,6 +72,7 @@ public class Http extends AsyncTask<Void, Void, String> {
         String apiUrl = "http://192.168.1.57:8080/temperature";
 
         try {
+            // Establish connection and fetch data
             URL url = new URL(apiUrl);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -71,6 +86,7 @@ public class Http extends AsyncTask<Void, Void, String> {
                 result.append(line);
             }
 
+            // Store fetched data in the DataStockage singleton instance
             DataStockage.getInstance().setTemperatureData(result.toString());
             DataStockage.getInstance().setAqiData(result.toString());
             DataStockage.getInstance().setCoData(result.toString());
@@ -81,6 +97,7 @@ public class Http extends AsyncTask<Void, Void, String> {
             DataStockage.getInstance().setPm25Data(result.toString());
             DataStockage.getInstance().setPm10Data(result.toString());
             DataStockage.getInstance().setNh3Data(result.toString());
+            DataStockage.getInstance().setAqiTomorrowData(result.toString());
             return result.toString();
 
         } catch (IOException e) {
@@ -96,6 +113,7 @@ public class Http extends AsyncTask<Void, Void, String> {
                 // Parse the JSON response
                 JSONObject jsonObject = new JSONObject(result);
 
+                // Extract data from JSON and update DataStockage
                 double temperatureValue = jsonObject.getDouble("temperature");
                 DataStockage.getInstance().setTemperatureData(String.valueOf(temperatureValue));
 
@@ -126,6 +144,9 @@ public class Http extends AsyncTask<Void, Void, String> {
                 int nh3Value = jsonObject.getInt("nh3");
                 DataStockage.getInstance().setNh3Data(String.valueOf(nh3Value));
 
+                int aqiTomorrowValue = jsonObject.getInt("aqi_tomorrow");
+                DataStockage.getInstance().setAqiTomorrowData(String.valueOf(aqiTomorrowValue));
+/***
                 // Update the UI with the temperature value
                 if (temperatureLevel != null) {
                     temperatureLevel.setText(DataStockage.getInstance().getTemperatureData());
@@ -157,6 +178,10 @@ public class Http extends AsyncTask<Void, Void, String> {
                 if (nh3Label != null) {
                     nh3Label.setText(DataStockage.getInstance().getNh3Data());
                 }
+                if (aqiTomorrowLabel != null) {
+                    aqiTomorrowLabel.setText(DataStockage.getInstance().getAqiTomorrowData());
+                }
+                ***/
                 Log.i("Http", "onPostExecute: " + result);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -170,4 +195,3 @@ public class Http extends AsyncTask<Void, Void, String> {
 
 
 }
-
