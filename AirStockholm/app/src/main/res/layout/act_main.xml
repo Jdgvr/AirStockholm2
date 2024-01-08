@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_act"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:id="@+id/temperatureLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_thermo"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--°C"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvLocationAndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stockholm, 14-12-2023"
+            android:layout_toLeftOf="@id/tvTemperature"
+            android:layout_alignTop="@id/tvTemperature"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="6dp"/>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvGoodMorning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvAirQuality"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        style="@style/TitleFontStyle"
+        android:text="Good morning!"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvAirQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center_horizontal"
+        android:text="Tomorrow, air quality seems Fair."
+        android:textColor="#FFFFFF"
+        style="@style/TitleFontStyle"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/layoutMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/ivComparison"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_comparison"
+            android:layout_margin="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:onClick="onComparisonClick"/>
+
+        <ImageButton
+            android:id="@+id/ivHome"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_home"
+            android:layout_margin="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:onClick="onHomeClick"/>
+
+        <ImageButton
+            android:id="@+id/ivTable"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_table"
+            android:layout_margin="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:onClick="onTableClick"/>
+    </LinearLayout>
+</RelativeLayout>

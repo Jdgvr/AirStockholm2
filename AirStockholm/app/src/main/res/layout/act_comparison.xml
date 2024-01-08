@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/comp_act"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:id="@+id/temperatureLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_thermo"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/tvTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-08°C"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tvLocationAndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stockholm, 14-12-2023"
+            android:layout_toLeftOf="@id/tvTemperature"
+            android:layout_alignTop="@id/tvTemperature"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="6dp"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameMaskAdvice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temperatureLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/border_yellow"
+        android:visibility="invisible"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMaskAdviceTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Wear a mask!"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvMaskAdviceDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Today's AQI is Very Poor. You should consider wearing a mask if you go out."
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameGoodAQI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temperatureLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        android:background="@drawable/border_green"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGoodAQITitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Today's AQI is Fair."
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvGoodAQIDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Wearing a mask will be suggested if AQI gets to be Poor or Very Poor."
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/aqiSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_below="@id/frameMaskAdvice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onAQICompClick"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/aqi_comp"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/aqiTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AQI / Average AQI"
+                android:textSize="20sp"
+                android:visibility="visible"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/aqiInsight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's Air Quality Index is Fair. Usually in Stockholm, AQI is Good."
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/aqiText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:text="Compares current AQI and average AQI."
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tempSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_below="@id/aqiSection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onTemperatureCompClick"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/temp_comp"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="°C / Average °C"
+                android:textSize="20sp"
+                android:textAppearance="@style/TitleFontStyle"
+                android:visibility="visible"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tempText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Compares °C and average °C for the current month."
+                android:visibility="visible"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tempInsight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's temperature is 0°C: it is below the monthly average (0°C)."
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ozoneSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_below="@id/tempSection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onOzoneCompClick"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ozone_comp"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ozoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ozone Level"
+                android:textSize="20sp"
+                android:visibility="visible"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/ozoneText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usually, lower ozone levels is a synonym of a better air quality."
+                android:visibility="visible"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/ozoneInsight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's temperature is 0°C: it is below the monthly average (0°C)."
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pm25Section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_below="@id/ozoneSection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onPM25CompClick"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical">
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pm25_comp"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pm25Title"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PM2.5 / Cigarettes"
+                android:textSize="20sp"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/pm25Text"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To display to what extent today's PM2.5 level can affect your lungs."
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/pm25Insight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's temperature is 0°C: it is below the monthly average (0°C)."
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:textAppearance="@style/TitleFontStyle"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/ivComparison"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_comparison"
+            android:layout_margin="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:onClick="onComparisonClick"/>
+
+        <ImageButton
+            android:id="@+id/ivHome"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_home"
+            android:layout_margin="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:onClick="onHomeClick"/>
+
+        <ImageButton
+            android:id="@+id/ivTable"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_table"
+            android:layout_margin="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:scaleType="fitCenter"
+            android:onClick="onTableClick"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,313 @@
+{
+  "name": "airquality_home",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "cFXuUpcjaQ8CTz6V7ItAaA",
+    "node": "38:4",
+    "version": "4865012931",
+    "component-id": "a85898797cb29ae995c029071cba08ba90efc711"
+  },
+  "default": "airquality_home",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "Group 2"
+      },
+      {
+        "type": "group",
+        "id": "Group 3"
+      },
+      {
+        "type": "text",
+        "id": "Good"
+      },
+      {
+        "type": "text",
+        "id": "morning"
+      },
+      {
+        "type": "text",
+        "id": "!"
+      },
+      {
+        "type": "text",
+        "id": "."
+      },
+      {
+        "type": "text",
+        "id": "Today, air quality seems"
+      },
+      {
+        "type": "text",
+        "id": "Fair"
+      }
+    ],
+    "modes": {
+      "airquality_home": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "Group 2",
+              "Group 3"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Group 2",
+            "margin": {
+              "left": "15.0",
+              "right": "31.0",
+              "bottom": "101.0"
+            },
+            "is-structured": "false",
+            "children": [
+              "Good",
+              "morning",
+              "!"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Group 3",
+            "margin": {
+              "top": "64.0"
+            },
+            "is-structured": "false",
+            "children": [
+              ".",
+              "Today, air quality seems",
+              "Fair"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "Good",
+            "margin": {
+              "right": "112.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Good",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2120000123977661",
+            "typeface": "Libre Franklin"
+          },
+          {
+            "id": "morning",
+            "margin": {
+              "left": "87.0",
+              "right": "7.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "$daytime_text",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2120000123977661",
+            "typeface": "Libre Franklin"
+          },
+          {
+            "id": "!",
+            "margin": {
+              "left": "213.0",
+              "bottom": "2.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "!",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2120000123977661",
+            "typeface": "Libre Franklin"
+          },
+          {
+            "id": ".",
+            "margin": {
+              "left": "167.0",
+              "top": "39.0",
+              "right": "94.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": ".",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2120000123977661",
+            "typeface": "Libre Franklin"
+          },
+          {
+            "id": "Today, air quality seems",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Today, air quality seems",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2120000123977661",
+            "typeface": "Libre Franklin"
+          },
+          {
+            "id": "Fair",
+            "margin": {
+              "left": "106.0",
+              "top": "39.0",
+              "right": "25.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "font-weight": "600.0",
+            "color": "$aqi_color",
+            "text-content": "$aqi_text",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "32.0",
+            "line-height": "1.2120000123977661",
+            "typeface": "Libre Franklin"
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "daytime_text": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    },
+    "aqi_color": {
+      "data-type": "color",
+      "required": false,
+      "description": ""
+    },
+    "aqi_text": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "airquality_home",
+      "size": {
+        "width": 269.0,
+        "height": 142.0
+      },
+      "parameters": {
+        "daytime_text": "morning",
+        "aqi_color": {
+          "alpha": "1.0",
+          "hue": "0.0",
+          "saturation": "0.0",
+          "value": "1.0"
+        },
+        "aqi_text": "Fair"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
