@@ -1,8 +1,5 @@
 package com.example.airstockholm;
 
-import android.content.SharedPreferences;
-import android.widget.TextView;
-import android.view.View;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -18,7 +15,7 @@ public class CommonTools {
             case 3: return "Moderate.";
             case 4: return "Poor.";
             case 5: return "Very Poor.";
-            default: return "[no data]";
+            default: return "[no data].";
         }
     }
 
@@ -26,8 +23,7 @@ public class CommonTools {
     public static String updateUI_Date() {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, MMMM d, yyyy", Locale.ENGLISH);
-        String formattedDate = "Stockholm, " + dateFormat.format(date);
-        return formattedDate;
+        return "Stockholm, " + dateFormat.format(date);
     }
 
     public static String updateUI_Temperature(){

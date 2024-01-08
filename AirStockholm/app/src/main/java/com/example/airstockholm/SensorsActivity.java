@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SensorsActivity extends AppCompatActivity {
 
-    private TextView todayDate;
-    private TextView temperature;
+    TextView value_header;
+    private TextView todayDate, temperature;
     private TextView so2_range, so2_value, so2_insight;
     private TextView co_range, co_value, co_insight;
     private TextView nh3_range, nh3_value, nh3_insight;
@@ -29,6 +29,7 @@ public class SensorsActivity extends AppCompatActivity {
 
         todayDate = findViewById(R.id.tvLocationAndDate);
         temperature = findViewById(R.id.tvTemperature);
+        value_header = findViewById(R.id.tvValue);
 
         so2_range = findViewById(R.id.tvSO2Range);
         so2_value = findViewById(R.id.tvSO2Value);
@@ -65,27 +66,25 @@ public class SensorsActivity extends AppCompatActivity {
         String background = sharedPreferences.getString("background", "default_background");
 
         switch(background){
-            case "bg1":
-                findViewById(R.id.sensors_act).setBackgroundResource(R.drawable.background_1);
-                break;
             case "bg2":
                 findViewById(R.id.sensors_act).setBackgroundResource(R.drawable.background_2);
-
                 break;
             case "bg3":
                 findViewById(R.id.sensors_act).setBackgroundResource(R.drawable.background_3);
-
                 break;
             case "bg4":
                 findViewById(R.id.sensors_act).setBackgroundResource(R.drawable.background_4);
-
                 break;
             case "bg5":
                 findViewById(R.id.sensors_act).setBackgroundResource(R.drawable.background_5);
-
                 break;
             default:
+                findViewById(R.id.sensors_act).setBackgroundResource(R.drawable.background_1);
                 break;
+        }
+
+        if(background.equals("no_data")){
+            value_header.setText("No data.");
         }
     }
 

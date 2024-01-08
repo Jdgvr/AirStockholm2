@@ -1,6 +1,5 @@
 package com.example.airstockholm;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,7 +14,7 @@ import java.util.Calendar;
 public class ComparisonActivity extends AppCompatActivity {
     private TextView todayDate;
     private TextView temperature;
-    private TextView green_box_title, yellow_box_text;
+    private TextView green_box_title, yellow_box_text, green_box_text;
     private FrameLayout yellow_box_frame, green_box_frame;
     private TextView aqi_insight, aqi_text, aqi_title;
     private TextView temperature_insight, temperature_text, temperature_title;
@@ -31,6 +30,7 @@ public class ComparisonActivity extends AppCompatActivity {
         temperature = findViewById(R.id.tvTemperature);
 
         green_box_title = findViewById(R.id.tvGoodAQITitle);
+        green_box_text = findViewById(R.id.tvGoodAQIDetail);
         yellow_box_text = findViewById(R.id.tvMaskAdviceDetail);
         yellow_box_frame = findViewById(R.id.frameMaskAdvice);
         green_box_frame = findViewById(R.id.frameGoodAQI);
@@ -56,9 +56,6 @@ public class ComparisonActivity extends AppCompatActivity {
         String background = sharedPreferences.getString("background", "bg1");
 
         switch(background){
-            case "bg1":
-                findViewById(R.id.comp_act).setBackgroundResource(R.drawable.background_1);
-                break;
             case "bg2":
                 findViewById(R.id.comp_act).setBackgroundResource(R.drawable.background_2);
                 break;
@@ -72,6 +69,7 @@ public class ComparisonActivity extends AppCompatActivity {
                 findViewById(R.id.comp_act).setBackgroundResource(R.drawable.background_5);
                 break;
             default:
+                findViewById(R.id.comp_act).setBackgroundResource(R.drawable.background_1);
                 break;
         }
     }
@@ -105,6 +103,9 @@ public class ComparisonActivity extends AppCompatActivity {
             yellow_box_frame.setVisibility(View.INVISIBLE);
             green_box_frame.setVisibility(View.VISIBLE);
             green_box_title.setText("Today's AQI is " + CommonTools.getAQIString(current_aqi));
+            if(current_aqi == 0) {
+                green_box_text.setText("The server is offline. We can't display suggestions about AQI.");
+            }
         }
     }
 
@@ -138,7 +139,7 @@ public class ComparisonActivity extends AppCompatActivity {
         String ozoneLevelText;
         if (ozone > 140) {
             ozoneLevelText = "Today, ozone level is high (" + ozone + " μg/m3).";
-        } else if (ozone >= 60 && ozone <= 140) {
+        } else if (ozone >= 60) {
             ozoneLevelText = "Today, ozone level is moderate (" + ozone + " μg/m3).";
         } else {
             ozoneLevelText = "Today, ozone level is low (" + ozone + " μg/m3).";

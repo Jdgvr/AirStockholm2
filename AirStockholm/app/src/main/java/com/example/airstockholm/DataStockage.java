@@ -41,21 +41,37 @@ public class DataStockage {
 
     // to get the values from the hashmap
     public int getTemperature(){
-        return (int) Math.round(sensors_values_map.get("T"));
+        try {
+            return (int) Math.round(sensors_values_map.get("T"));
+        } catch (NullPointerException e){
+            return 0;
+        }
     }
     public int getAQI(){
-        return (int) Math.round(sensors_values_map.get("AQI"));
+        try{
+            return (int) Math.round(sensors_values_map.get("AQI"));
+        } catch (NullPointerException e){
+            return 0;
+        }
     }
     public int getAQI_P(){
-        return (int) Math.round(sensors_values_map.get("AQI_P"));
+        try{
+            return (int) Math.round(sensors_values_map.get("AQI_P"));
+        } catch (NullPointerException e){
+            return 0;
+        }
     }
 
     // these three functions above are held separately to avoid the conversion between double and int in the activities
 
     public double getFeatureValue(String key){
-        return sensors_values_map.get(key);
+        try {
+            return sensors_values_map.get(key);
+        } catch (NullPointerException e){
+            return 0.0;
+        }
     }
-    // possible keys to pass are aqi, aqi_p, t, co, no2, no, pm10, pm25, nh3, o3, so2
+    // possible keys to pass are aqi, aqi_p and t (never used), co, no2, no, pm10, pm25, nh3, o3, so2
 }
 
 

@@ -50,19 +50,26 @@
                 @Override
                 public void run() {
                     final HttpHandler httpHandler = new HttpHandler();
-                    final String response = httpHandler.callApi("http://192.168.64.3:5001/pred_aqi");
-
+                    final String response;
+                    response = httpHandler.callApi("http://192.168.64.3:5001/pred_aqi");
+                    // note that the app tries to connect to our server on the virtual machine.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            try {
+                            try{
                                 if (response != null) {
                                     // sets the sensor values to be ready for the other activities
                                     DataStockage.getInstance().setSensors_values(new JSONObject(response));
-
-                                    updateUI_AQI_P();
-                                    temperature.setText(CommonTools.updateUI_Temperature());
                                 }
+                                else{
+                                    DataStockage.getInstance().setSensors_values(new JSONObject("{'AQI' : 0.0, 'CO' : 0.0, " +
+                                            "'SO2' : 0.0, 'NO' : 0.0, 'NO2' : 0.0, 'PM10' : 0.0, 'PM25' : 0.0, 'O3' : 0.0, " +
+                                            "'NH3' : 0.0, 'T' : 0.0, 'AQI_P' : 0.0}")); // default values if the server is offline
+                                    daytime.setText("The server is offline.");
+                                }
+                                updateUI_AQI_P();
+                                temperature.setText(CommonTools.updateUI_Temperature());
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -132,7 +139,11 @@
                     bg_editor.apply();
                     findViewById(R.id.main_act).setBackgroundResource(R.drawable.background_5);
                     break;
-                default: break;
+                default:
+                    bg_editor.putString("background", "no_data");
+                    bg_editor.apply();
+                    findViewById(R.id.main_act).setBackgroundResource(R.drawable.background_1);
+                    break;
             }
         }
 
